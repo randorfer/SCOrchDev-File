@@ -9,13 +9,13 @@
 @{
 
 # Script module or binary module file associated with this manifest.
-RootModule = '.\SCOrchDev-Utility.psm1'
+RootModule = '.\SCOrchDev-File.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.2'
+ModuleVersion = '1.0.0'
 
 # ID used to uniquely identify this module
-GUID = '41d1dfce-c2f0-42e5-b4b0-42eac1116fcd'
+GUID = '9f560bb6-6633-4efe-87d9-a12fcf1c81ff'
 
 # Author of this module
 Author = 'Ryan Andorfer'
@@ -78,10 +78,10 @@ VariablesToExport = '*'
 AliasesToExport = '*'
 
 # List of all modules packaged with this module
-ModuleList = @('SCOrchDev-Utility')
+ModuleList = @('SCOrchDev-File')
 
 # List of all files packaged with this module
-FileList = @('SCOrchDev-Utility.psd1', 'SCOrchDev-Utility.psm1')
+FileList = @('SCOrchDev-File.psd1', 'SCOrchDev-File.psm1')
 
 # Private data to pass to the module specified in RootModule/ModuleToProcess
 # PrivateData = ''
