@@ -81,7 +81,7 @@ AliasesToExport = '*'
 ModuleList = @('SCOrchDev-File')
 
 # List of all files packaged with this module
-FileList = @('SCOrchDev-File.psd1', 'SCOrchDev-File.psm1')
+FileList = @('SCOrchDev-File.psd1', 'SCOrchDev-File.psm1', 'SCOrchDev-File.tests.ps1', 'LICENSE', 'README.md')
 
 # Private data to pass to the module specified in RootModule/ModuleToProcess
 # PrivateData = ''
