@@ -12,7 +12,7 @@
 RootModule = '.\SCOrchDev-File.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0'
+ModuleVersion = '1.0.1'
 
 # ID used to uniquely identify this module
 GUID = '9f560bb6-6633-4efe-87d9-a12fcf1c81ff'
@@ -48,7 +48,7 @@ PowerShellVersion = '4.0'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-# RequiredModules = @('')
+RequiredModules = @('SCOrchDev-Exception')
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()

@@ -1,4 +1,4 @@
-﻿
+﻿#requires -Version 3 -Modules SCOrchDev-Exception
 <#
 .Synopsis
     Creates a zip file from a target directory
@@ -37,16 +37,16 @@ Function New-ZipFile
         {
             if(Test-Path -Path $ZipFilePath)
             {
-                Remove-Item $ZipFilePath -Force -Confirm:$False
+                Remove-Item -Path $ZipFilePath -Force -Confirm:$False
             }
         }
 
         if(-not (Test-Path -Path "$($ZipFilePath.Substring(0,$ZipFilePath.LastIndexOf('\')))"))
         {
-            $newDir = New-Item -ItemType Directory `
-                               -Path "$($ZipFilePath.Substring(0,$ZipFilePath.LastIndexOf('\')))" `
-                               -Force `
-                               -Confirm:$False
+            $null = New-Item -ItemType Directory `
+                             -Path "$($ZipFilePath.Substring(0,$ZipFilePath.LastIndexOf('\')))" `
+                             -Force `
+                             -Confirm:$False
         }
 
         Add-Type -AssemblyName System.IO.Compression.FileSystem
@@ -68,7 +68,7 @@ Function New-TempDirectory
     Param(
         [Parameter(Mandatory = $False, ValueFromPipeline = $True)]
         [string]
-        $SourceDir = 'C:\'
+        $SourceDir = "$($env:SystemDrive)\"
     )
     
     do
@@ -78,7 +78,7 @@ Function New-TempDirectory
     }
     while($DirectoryExists)
 
-    New-Item -ItemType Directory $TempDirectory
+    New-Item -ItemType Directory -Path $TempDirectory
 }
 
 <#
@@ -137,9 +137,9 @@ Function ConvertTo-UTF8
         [Parameter(Mandatory = $True, ValueFromPipeline = $True)] 
         [string]$Path 
     )
-    $File = Get-Item $Path
-    $content = Get-Content $Path
-    if ( $content -ne $Null ) 
+    $File = Get-Item -Path $Path
+    $content = Get-Content -Path $Path
+    if ( $Null -ne $content ) 
     {
         Remove-Item -Path $File.FullName -Force
         $content | Out-File -FilePath $File.FullName -Encoding utf8
@@ -173,12 +173,12 @@ Function New-FileItemContainer
     if(-Not (Test-Path -Path $ContainerPath))
     {
         Write-Verbose -Message 'Creating Directory'
-        New-Item -ItemType Directory $ContainerPath
+        New-Item -ItemType Directory -Path $ContainerPath
     }
     else
     {
         Write-Verbose -Message 'Directory Existed'
-        Get-Item $ContainerPath
+        Get-Item -Path $ContainerPath
     }
 }
 <#
