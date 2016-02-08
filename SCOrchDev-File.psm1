@@ -7,7 +7,7 @@
     The directory to zip up
 
 .Parameter ZipFilePath
-    The path to store the new zip file at
+    The path to store the new zip file at!
 
 .Parameter OverwriteExisting
     If the zip file already exists should it be overwritten. Default: True
